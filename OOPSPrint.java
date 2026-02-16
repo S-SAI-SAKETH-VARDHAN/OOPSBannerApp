@@ -1,13 +1,13 @@
-public class OOPSStarPattern {
+public class OOPSPrint {
+
     public static void main(String[] args) {
 
-        System.out.println(" *****   *****   *****   ***** ");
-        System.out.println("*     * *     * *     * *     ");
-        System.out.println("*     * *     * *     * *      ");
-        System.out.println("*     * *     * *****   *****  ");
-        System.out.println("*     * *     * *            * ");
-        System.out.println("*     * *     * *            * ");
-        System.out.println(" *****   *****  *       *****  ");
-
+        // OOPS Banner using String.join() (UC3)
+        System.out.println(String.join(" ", "  ***  ", "  ***  ", " ****  ", " ***** "));
+        System.out.println(String.join(" ", " *   * ", " *   * ", " *   * ", " *     "));
+        System.out.println(String.join(" ", "*     *", "*     *", " ****  ", " ****  "));
+        System.out.println(String.join(" ", "*     *", "*     *", " *     ", "     * "));
+        System.out.println(String.join(" ", " *   * ", " *   * ", " *     ", " *   * "));
+        System.out.println(String.join(" ", "  ***  ", "  ***  ", " *     ", " ***** "));
     }
 }
