@@ -1,13 +1,21 @@
-public class OOPSPrint {
+public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        // OOPS Banner using String.join() (UC3)
-        System.out.println(String.join(" ", "  ***  ", "  ***  ", " ****  ", " ***** "));
-        System.out.println(String.join(" ", " *   * ", " *   * ", " *   * ", " *     "));
-        System.out.println(String.join(" ", "*     *", "*     *", " ****  ", " ****  "));
-        System.out.println(String.join(" ", "*     *", "*     *", " *     ", "     * "));
-        System.out.println(String.join(" ", " *   * ", " *   * ", " *     ", " *   * "));
-        System.out.println(String.join(" ", "  ***  ", "  ***  ", " *     ", " ***** "));
+        String[] bannerLines = {
+            "   ***        ***      ******        ***** ",
+            " **   **    **   **    **    **     **     ",
+            "**     **  **     **   **     **   **     ",
+            "**     **  **     **   **    **     **  ",
+            "**     **  **     **   ******        ***",
+            "**     **  **     **   **              **  ",
+            "**     **  **     **   **               **     ",
+            " **   **    **    **   **              **       ",
+            "   ***        ***      **         *****    "
+        };
+
+        for (String line : bannerLines) {
+            System.out.println(line);
+        }
     }
 }
