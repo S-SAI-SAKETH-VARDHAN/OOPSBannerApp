@@ -13,6 +13,19 @@ public class OOPSPrint {
         };
     }
 
+     // Helper method for O
+    static String[] getOPattern() {
+        return new String[]{
+                String.join("", " *** "),
+                String.join("", "*   *"),
+                String.join("", "*   *"),
+                String.join("", "*   *"),
+                String.join("", "*   *"),
+                String.join("", "*   *"),
+                String.join("", " *** ")
+        };
+    }
+
     // Helper method for P
     static String[] getPPattern() {
         return new String[]{
