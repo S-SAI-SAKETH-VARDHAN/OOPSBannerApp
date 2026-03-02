@@ -1,53 +1,68 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class OOPSPrint {
-
-    // Helper method for O
-    static String[] getOPattern() {
-        return new String[]{
-                String.join("", " *** "),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", " *** ")
-        };
-    }
-
-    // Helper method for P
-    static String[] getPPattern() {
-        return new String[]{
-                String.join("", "**** "),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", "**** "),
-                String.join("", "*    "),
-                String.join("", "*    "),
-                String.join("", "*    ")
-        };
-    }
-
-    // Helper method for S
-    static String[] getSPattern() {
-        return new String[]{
-                String.join("", " ****"),
-                String.join("", "*    "),
-                String.join("", "*    "),
-                String.join("", " *** "),
-                String.join("", "    *"),
-                String.join("", "    *"),
-                String.join("", "**** ")
-        };
-    }
 
     public static void main(String[] args) {
 
-        String[] O = getOPattern();
-        String[] P = getPPattern();
-        String[] S = getSPattern();
+        Map<Character, String[]> patternMap = buildCharacterPatterns();
 
-        // Loop-based rendering
-        for (int i = 0; i < 7; i++) {
-            System.out.println(O[i] + "  " + O[i] + "  " + P[i] + "  " + S[i]);
+        renderBanner("OOPS", patternMap);
+    }
+
+    public static Map<Character, String[]> buildCharacterPatterns() {
+
+        Map<Character, String[]> map = new HashMap<>();
+
+        map.put('O', new String[]{
+                " ***** ",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                " ***** "
+        });
+
+        map.put('P', new String[]{
+                "****** ",
+                "*     *",
+                "*     *",
+                "****** ",
+                "*      ",
+                "*      ",
+                "*      "
+        });
+
+        map.put('S', new String[]{
+                " ***** ",
+                "*      ",
+                "*      ",
+                " ***** ",
+                "      *",
+                "      *",
+                " ***** "
+        });
+
+        return map;
+    }
+
+    public static void renderBanner(String message, Map<Character, String[]> map) {
+
+        for (int row = 0; row < 7; row++) {
+
+            StringBuilder line = new StringBuilder();
+
+            for (char ch : message.toCharArray()) {
+
+                String[] pattern = map.get(ch);
+
+                if (pattern != null) {
+                    line.append(pattern[row]).append("   ");
+                }
+            }
+
+            System.out.println(line);
         }
     }
 }
