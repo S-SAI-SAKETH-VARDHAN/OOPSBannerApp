@@ -1,26 +1,20 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class OOPSPrint {
 
-    public static class CharacterPattern {
+    public static void main(String[] args) {
 
-        private char character;
-        private String[] pattern;
+        Map<Character, String[]> patternMap = buildCharacterPatterns();
 
-        public CharacterPattern(char character, String[] pattern) {
-            this.character = character;
-            this.pattern = pattern;
-        }
-
-        public char getCharacter() {
-            return character;
-        }
-
-        public String[] getPattern() {
-            return pattern;
-        }
+        renderBanner("OOPS", patternMap);
     }
 
-    public static String[] getOPattern() {
-        return new String[]{
+    public static Map<Character, String[]> buildCharacterPatterns() {
+
+        Map<Character, String[]> map = new HashMap<>();
+
+        map.put('O', new String[]{
                 " ***** ",
                 "*     *",
                 "*     *",
@@ -28,53 +22,9 @@ public class OOPSPrint {
                 "*     *",
                 "*     *",
                 " ***** "
-        };
-    }
-	
-	public static String[] getOPattern() {
-        return new String[]{
-                " ***** ",
-                "*     *",
-                "*     *",
-                "*     *",
-                "*     *",
-                "*     *",
-                " ***** "
-        };
-    }
+        });
 
-<<<<<<< HEAD
-    public static String[] getPPattern() {
-=======
-     // Helper method for O
-    static String[] getOPattern() {
-        return new String[]{
-                String.join("", " *** "),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", " *** ")
-        };
-    }
-
-    static String[] getOPattern() {
-        return new String[]{
-                String.join("", " *** "),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", "*   *"),
-                String.join("", " *** ")
-        };
-    }
-
-    // Helper method for P
-    static String[] getPPattern() {
->>>>>>> bd341665e817622a1f3ed25be73e4fd1faa45b16
-        return new String[]{
+        map.put('P', new String[]{
                 "****** ",
                 "*     *",
                 "*     *",
@@ -82,11 +32,9 @@ public class OOPSPrint {
                 "*      ",
                 "*      ",
                 "*      "
-        };
-    }
+        });
 
-    public static String[] getSPattern() {
-        return new String[]{
+        map.put('S', new String[]{
                 " ***** ",
                 "*      ",
                 "*      ",
@@ -94,24 +42,24 @@ public class OOPSPrint {
                 "      *",
                 "      *",
                 " ***** "
-        };
+        });
+
+        return map;
     }
 
-    public static void main(String[] args) {
+    public static void renderBanner(String message, Map<Character, String[]> map) {
 
-        CharacterPattern[] letters = {
-                new CharacterPattern('O', getOPattern()),
-                new CharacterPattern('O', getOPattern()),
-                new CharacterPattern('P', getPPattern()),
-                new CharacterPattern('S', getSPattern())
-        };
-
-        for (int i = 0; i < 7; i++) {
+        for (int row = 0; row < 7; row++) {
 
             StringBuilder line = new StringBuilder();
 
-            for (CharacterPattern letter : letters) {
-                line.append(letter.getPattern()[i]).append("   ");
+            for (char ch : message.toCharArray()) {
+
+                String[] pattern = map.get(ch);
+
+                if (pattern != null) {
+                    line.append(pattern[row]).append("   ");
+                }
             }
 
             System.out.println(line);
