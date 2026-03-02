@@ -43,7 +43,25 @@ public class OOPSPrint {
         };
     }
 
+<<<<<<< HEAD
     public static String[] getPPattern() {
+=======
+     // Helper method for O
+    static String[] getOPattern() {
+        return new String[]{
+                String.join("", " *** "),
+                String.join("", "*   *"),
+                String.join("", "*   *"),
+                String.join("", "*   *"),
+                String.join("", "*   *"),
+                String.join("", "*   *"),
+                String.join("", " *** ")
+        };
+    }
+
+    // Helper method for P
+    static String[] getPPattern() {
+>>>>>>> bd341665e817622a1f3ed25be73e4fd1faa45b16
         return new String[]{
                 "****** ",
                 "*     *",
